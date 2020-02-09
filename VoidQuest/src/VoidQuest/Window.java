@@ -1,6 +1,8 @@
 package VoidQuest;
 
+import java.awt.Button;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
@@ -31,6 +33,11 @@ public class Window extends JFrame implements MouseListener {
         game = new Game(this);
 	}
 	
+	private void story() {
+		
+		
+	}
+
 	public void toggleInput() {
 		if(menu.getActive() == true) {
 			menu.off();
@@ -41,6 +48,14 @@ public class Window extends JFrame implements MouseListener {
 				game.off();
 			}
 		}
+	
+	public void initButton(Button inputButton, String text) {
+		inputButton.setLabel(text);
+		inputButton.setFont(new Font("Serif", Font.PLAIN, 40));
+		inputButton.setBackground(new Color(0, 0, 0));
+		inputButton.setForeground(new Color(255, 255, 0));
+		
+	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -57,4 +72,6 @@ public class Window extends JFrame implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 	}
+
+
 }
