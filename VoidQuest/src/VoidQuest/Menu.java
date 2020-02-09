@@ -1,13 +1,15 @@
 package VoidQuest;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class Menu extends Frame implements MouseListener {
 	private Button playButton = new Button();
 	private Button closeButton = new Button();
-	private Driver window;
+	private Window window;
+	private boolean isOn = true;
 	
-	public Menu(Driver x) {
+	public Menu(Window x) {
 		window = x;
         // Adds Play Button
 		playButton.setBounds(100,100,300,80);
@@ -28,6 +30,7 @@ public class Menu extends Frame implements MouseListener {
 
 		playButton.setVisible(true);
 		closeButton.setVisible(true);
+		isOn = true;
 	}
 	
 	public void off() {
@@ -36,6 +39,11 @@ public class Menu extends Frame implements MouseListener {
 
 		playButton.setVisible(false);
 		closeButton.setVisible(false);
+		isOn = false;
+	}
+	
+	public boolean getActive() {
+		return isOn;
 	}
 	
 	@Override
@@ -43,13 +51,11 @@ public class Menu extends Frame implements MouseListener {
 		window.toggleInput();
 		if(e.getSource() == playButton) {
 			playButton.setLabel("pressed");
+			off();
 			
 		} else if(e.getSource() == closeButton) {
 			closeButton.setLabel("Goodbye!");
-			
-			if(closeButton.getLabel() == "Goodbye!") {
-				dispose();
-			}	
+				window.dispose();
 		}
 	}
 	
