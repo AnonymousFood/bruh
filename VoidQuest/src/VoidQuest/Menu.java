@@ -1,4 +1,3 @@
-package VoidQuest;
 
 import java.awt.*;
 import java.awt.event.*;
